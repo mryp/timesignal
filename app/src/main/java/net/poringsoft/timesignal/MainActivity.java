@@ -1,5 +1,6 @@
 package net.poringsoft.timesignal;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentTabHost;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -86,6 +87,8 @@ public class MainActivity extends ActionBarActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_settings) {
+            Intent intent = new Intent(this, PrefActivity.class);
+            this.startActivity(intent);
             return true;
         }
 

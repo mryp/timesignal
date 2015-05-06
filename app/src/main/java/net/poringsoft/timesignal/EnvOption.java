@@ -16,8 +16,12 @@ public class EnvOption {
     public static final int NET_GET_TIMEOUT = 20000;
     
     //設定値
-    //public static final String KEY_MAIN_LIST_SORT_TYPE = " main_list_sort_type";     //メインリストの並び替え値
-
+    public static final String KEY_TIME_USE_COUNTDOWN_VIBRATION = "time_use_countdown_vibration";
+    public static final String KEY_TIME_USE_COUNTDOWN_SOUND = "time_use_countdown_sound";
+    public static final String KEY_TIME_COUNTDOWN_COUNT = "time_countdown_count";
+    public static final String KEY_TIME_DIFFERENCE_MILLISEC = "time_difference_millisec";
+    public static final String KEY_TIME_VIB_TICK_MILLISEC = "time_vib_tick_millsec";
+    public static final String KEY_TIME_VIB_FINISH_MILLISEC = "time_vib_finish_millsec";
 
     //共通メソッド
     //---------------------------------------------------------
@@ -99,11 +103,29 @@ public class EnvOption {
         return result;
     }
     
-    //メイン画面関連
+    //時報関連
     //-------------------------------------------
-    /*
-    public static void putMainListSortType(Context context, int sortType) {
-        putInt(context, KEY_MAIN_LIST_SORT_TYPE, sortType);
+    public static boolean getTimeUseCountdownVibration(Context context) {
+        return getBoolean(context, KEY_TIME_USE_COUNTDOWN_VIBRATION, true);
     }
-    */
+
+    public static boolean getTimeUseCountdownSound(Context context) {
+        return getBoolean(context, KEY_TIME_USE_COUNTDOWN_SOUND, true);
+    }
+
+    public static int getTimeCountdownCount(Context context) {
+        return Integer.parseInt(getString(context, KEY_TIME_COUNTDOWN_COUNT, "5"));
+    }
+
+    public static int getTimeDifferenceMillsec(Context context) {
+        return Integer.parseInt(getString(context, KEY_TIME_DIFFERENCE_MILLISEC, "0"));
+    }
+
+    public static int getTimeVibTickMillisec(Context context) {
+        return Integer.parseInt(getString(context, KEY_TIME_VIB_TICK_MILLISEC, "100"));
+    }
+
+    public static int getTimeVibFinishMillisec(Context context) {
+        return Integer.parseInt(getString(context, KEY_TIME_VIB_FINISH_MILLISEC, "1000"));
+    }
 }

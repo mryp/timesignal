@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="時報設定">
+        <CheckBoxPreference
+            android:title="時報音"
+            android:summary="分の切り替わり前の指定秒をカウントダウン音で知らせる"
+            android:key="time_use_countdown_sound"
+            android:defaultValue="true" />
+        <CheckBoxPreference
+            android:title="時報バイブ"
+            android:summary="分の切り替わり前の指定秒をカウントダウンバイブレーションで知らせる"
+            android:key="time_use_countdown_vibration"
+            android:defaultValue="true" />
+        <EditTextPreference
+            android:title="カウントダウン秒数"
+            android:summary="分の切り替わり前に音・バイブを鳴らす開始秒数"
+            android:key="time_countdown_count"
+            android:inputType="number"
+            android:defaultValue="5" />
+        <EditTextPreference
+            android:title="調整ミリ秒"
+            android:summary="実際の時刻から指定ミリ秒だけ調節して表示する"
+            android:key="time_difference_millisec"
+            android:inputType="number"
+            android:defaultValue="0" />
+        <EditTextPreference
+            android:title="バイブ振動ミリ秒"
+            android:summary="分の切り替わり前にバイブレーションを発生させるミリ秒"
+            android:key="time_vib_tick_millsec"
+            android:inputType="number"
+            android:defaultValue="100" />
+        <EditTextPreference
+            android:title="00秒時バイブ振動ミリ秒"
+            android:summary="分の切り替わりちょうどのときのバイブレーションを発生させるミリ秒"
+            android:key="time_vib_finish_millsec"
+            android:inputType="number"
+            android:defaultValue="1000" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="バージョン情報">
+        <PreferenceScreen
+            android:title="version 1.0.0"
+            android:summary="Copyright (C) 2015 PORING SOFT"
+            android:key="version_info" />
+    </PreferenceCategory>
+</PreferenceScreen>

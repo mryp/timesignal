@@ -4,5 +4,6 @@
     <string name="tab_timesignal">時報</string>
     <string name="tab_daydiff">日差</string>
 
+    <string name="url_poringsoft">http://www.poringsoft.net/</string>
     <string name="action_settings">設定</string>
 </resources>
