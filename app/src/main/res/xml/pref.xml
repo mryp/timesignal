@@ -21,7 +21,7 @@
             android:title="調整ミリ秒"
             android:summary="実際の時刻から指定ミリ秒だけ調節して表示する"
             android:key="time_difference_millisec"
-            android:inputType="number"
+            android:inputType="numberSigned"
             android:defaultValue="0" />
         <EditTextPreference
             android:title="バイブ振動ミリ秒"
@@ -35,6 +35,12 @@
             android:key="time_vib_finish_millsec"
             android:inputType="number"
             android:defaultValue="1000" />
+        <EditTextPreference
+            android:title="NTPサーバー"
+            android:summary="NTP時刻を取得するサーバーのURL"
+            android:key="time_ntp_server"
+            android:inputType="textUri"
+            android:defaultValue="ntp.nict.jp" />
     </PreferenceCategory>
     <PreferenceCategory android:title="バージョン情報">
         <PreferenceScreen

@@ -22,6 +22,7 @@ public class EnvOption {
     public static final String KEY_TIME_DIFFERENCE_MILLISEC = "time_difference_millisec";
     public static final String KEY_TIME_VIB_TICK_MILLISEC = "time_vib_tick_millsec";
     public static final String KEY_TIME_VIB_FINISH_MILLISEC = "time_vib_finish_millsec";
+    public static final String KEY_TIME_NTP_SERVER = "time_ntp_server";
 
     //共通メソッド
     //---------------------------------------------------------
@@ -127,5 +128,9 @@ public class EnvOption {
 
     public static int getTimeVibFinishMillisec(Context context) {
         return Integer.parseInt(getString(context, KEY_TIME_VIB_FINISH_MILLISEC, "1000"));
+    }
+
+    public static String getTimeNtpServer(Context context) {
+        return getString(context, KEY_TIME_NTP_SERVER, "ntp.nict.jp");
     }
 }

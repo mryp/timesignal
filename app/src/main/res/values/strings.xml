@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">時刻合わせアプリ</string>
+    <string name="app_name">時刻合わせツール</string>
 
     <string name="tab_timesignal">時報</string>
     <string name="tab_daydiff">日差</string>

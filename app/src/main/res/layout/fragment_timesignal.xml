@@ -14,7 +14,37 @@
             android:layout_margin="20dp"
             android:textSize="50sp"
             android:textColor="#000000"
-            android:text="23:59:59"
+            android:text="00:00:00"
             android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom">
+        <TextView
+            android:id="@+id/diffTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="0dp"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            android:text="設定調整ミリ秒："
+            android:layout_gravity="left"/>
+        <TextView
+            android:id="@+id/ntpTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            android:text="NTP調整ミリ秒："
+            android:layout_gravity="left"/>
     </LinearLayout>
 </FrameLayout>
