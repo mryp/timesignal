@@ -1,6 +1,8 @@
 <resources>
-    <string name="app_name">timesignal</string>
+    <string name="app_name">時刻合わせアプリ</string>
 
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="tab_timesignal">時報</string>
+    <string name="tab_daydiff">日差</string>
+
+    <string name="action_settings">設定</string>
 </resources>
