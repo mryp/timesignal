@@ -92,7 +92,7 @@ public class TimeSignalFragment extends Fragment {
         }
         else
         {
-            updateSabunTextView(0 - m_ntpSabun, m_ntpTextView, "NTP調整ミリ秒： ");
+            updateSabunTextView(0 - m_ntpSabun, m_ntpTextView, "NTP補正時間：");
         }
     }
 
@@ -120,6 +120,7 @@ public class TimeSignalFragment extends Fragment {
         loadEnvOption();
 
         //サウンド初期化
+        //音源：http://www.kurage-kosho.info/system.html
         m_tickSound = new SoundPlayer(getActivity(), R.raw.se_pre_2);
         m_finishSound = new SoundPlayer(getActivity(), R.raw.se_signal_2);
 
@@ -141,7 +142,6 @@ public class TimeSignalFragment extends Fragment {
         //設定値初期化
         m_useSoundTick = EnvOption.getTimeUseCountdownSound(getActivity());
         m_useVibTick = EnvOption.getTimeUseCountdownVibration(getActivity());
-        m_nowDiffMillisec = EnvOption.getTimeDifferenceMillsec(getActivity());
         m_vibTickMillisec = EnvOption.getTimeVibTickMillisec(getActivity());
         m_vibFinishMilisec = EnvOption.getTimeVibFinishMillisec(getActivity());
 
@@ -157,7 +157,9 @@ public class TimeSignalFragment extends Fragment {
             }
         }
 
-        updateSabunTextView(m_nowDiffMillisec, m_diffTextView, "設定調整ミリ秒： ");
+        //手動調整ミリ秒
+        m_nowDiffMillisec = EnvOption.getTimeDifferenceMillsec(getActivity());
+        updateSabunTextView(m_nowDiffMillisec, m_diffTextView, "手動補正時間：");
     }
 
     /**
@@ -237,12 +239,13 @@ public class TimeSignalFragment extends Fragment {
      */
     private void updateSabunTextView(int sabun , TextView sabunTextView, String textPrefix)
     {
-        String text = String.valueOf(sabun);
+        double sec = (double)(sabun / 1000.0F);
+        String text = String.format("%.3f", sec);
         if (sabun != 0 && !text.startsWith("-"))
         {
             text = "+" + text;
         }
-        sabunTextView.setText(textPrefix + text + " ミリ秒");
+        sabunTextView.setText(textPrefix + " " + text + " 秒");
     }
 
     /**
@@ -250,6 +253,11 @@ public class TimeSignalFragment extends Fragment {
      */
     private void updateNtpTimeAsync()
     {
+        if (!EnvOption.getTimeUseNtp(getActivity()))
+        {
+            m_ntpTextView.setText("NTPサーバー時刻補正無効");
+            return;
+        }
         SntpTimeUpdateAsyncTask task = new SntpTimeUpdateAsyncTask();
         task.execute(EnvOption.getTimeNtpServer(getActivity()));
     }
@@ -304,7 +312,7 @@ public class TimeSignalFragment extends Fragment {
             if (result != RET_ERROR_SNTP)
             {
                 m_ntpSabun = result;
-                updateSabunTextView(0 - m_ntpSabun, m_ntpTextView, "NTP調整ミリ秒： ");
+                updateSabunTextView(0 - m_ntpSabun, m_ntpTextView, "NTP補正時間：");
             }
             else
             {

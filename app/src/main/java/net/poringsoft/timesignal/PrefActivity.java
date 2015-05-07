@@ -17,6 +17,10 @@ import android.provider.SearchRecentSuggestions;
  * Created by mry on 15/05/06.
  */
 public class PrefActivity extends PreferenceActivity {
+    /**
+     * 設定画面起動時処理
+     * @param savedInstanceState 保存データ
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

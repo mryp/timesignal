@@ -13,7 +13,7 @@ public class EnvOption {
     //---------------------------------------------------------
     //通信関連
     public static final String NET_GET_AGENT = "Mozilla/5.0 (Linux; Android; ja-jp;)";
-    public static final int NET_GET_TIMEOUT = 20000;
+    public static final int NET_GET_TIMEOUT = 10000;
     
     //設定値
     public static final String KEY_TIME_USE_COUNTDOWN_VIBRATION = "time_use_countdown_vibration";
@@ -23,6 +23,7 @@ public class EnvOption {
     public static final String KEY_TIME_VIB_TICK_MILLISEC = "time_vib_tick_millsec";
     public static final String KEY_TIME_VIB_FINISH_MILLISEC = "time_vib_finish_millsec";
     public static final String KEY_TIME_NTP_SERVER = "time_ntp_server";
+    public static final String KEY_TIME_USE_NTP = "time_use_ntp";
 
     //共通メソッド
     //---------------------------------------------------------
@@ -106,31 +107,75 @@ public class EnvOption {
     
     //時報関連
     //-------------------------------------------
+    /**
+     * カウントダウン時にバイブレーションを発生させるかどうか
+     * @param context コンテキスト
+     * @return バイブレーションを発生させる時はtrue
+     */
     public static boolean getTimeUseCountdownVibration(Context context) {
         return getBoolean(context, KEY_TIME_USE_COUNTDOWN_VIBRATION, true);
     }
 
+    /**
+     * カウントダウン時に音を鳴らすかどうか
+     * @param context コンテキスト
+     * @return 音を鳴らす時はtrue
+     */
     public static boolean getTimeUseCountdownSound(Context context) {
         return getBoolean(context, KEY_TIME_USE_COUNTDOWN_SOUND, true);
     }
 
+    /**
+     * カウントダウンを開始する秒数（5を指定すると55秒から開始する）
+     * @param context コンテキスト
+     * @return カウントダウン秒数（0~59）
+     */
     public static int getTimeCountdownCount(Context context) {
         return Integer.parseInt(getString(context, KEY_TIME_COUNTDOWN_COUNT, "5"));
     }
 
+    /**
+     * 手動時刻補正の時間（ミリ秒）を取得する
+     * @param context コンテキスト
+     * @return ミリ秒
+     */
     public static int getTimeDifferenceMillsec(Context context) {
         return Integer.parseInt(getString(context, KEY_TIME_DIFFERENCE_MILLISEC, "0"));
     }
 
+    /**
+     * カウントダウン時のバイブレーション時間（ミリ秒）を取得する
+     * @param context コンテキスト
+     * @return ミリ秒
+     */
     public static int getTimeVibTickMillisec(Context context) {
         return Integer.parseInt(getString(context, KEY_TIME_VIB_TICK_MILLISEC, "100"));
     }
 
+    /**
+     * 00秒時のバイブレーション時間（ミリ秒）を取得する
+     * @param context コンテキスト
+     * @return ミリ秒
+     */
     public static int getTimeVibFinishMillisec(Context context) {
         return Integer.parseInt(getString(context, KEY_TIME_VIB_FINISH_MILLISEC, "1000"));
     }
 
+    /**
+     * NTPサーバーのURLを取得する
+     * @param context コンテキスト
+     * @return サーバーURL
+     */
     public static String getTimeNtpServer(Context context) {
         return getString(context, KEY_TIME_NTP_SERVER, "ntp.nict.jp");
+    }
+
+    /**
+     * NTPサーバーを使用した時刻補正を行うかどうかを取得する
+     * @param context コンテキスト
+     * @return 時刻補正を行う時はtrue
+     */
+    public static boolean getTimeUseNtp(Context context) {
+        return getBoolean(context, KEY_TIME_USE_NTP, true);
     }
 }

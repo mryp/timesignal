@@ -13,8 +13,6 @@ import android.widget.TabHost;
 
 /**
  * メイン画面
- *
- * 効果音：http://www.kurage-kosho.info/system.html
  */
 public class MainActivity extends ActionBarActivity {
     //定数
@@ -40,21 +38,6 @@ public class MainActivity extends ActionBarActivity {
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().add(R.id.container, new TimeSignalFragment()).commit();
         }
-        /*
-        //タブの設定
-        FragmentTabHost tabHost = (FragmentTabHost)findViewById(android.R.id.tabhost);
-        tabHost.setup(this, getSupportFragmentManager(), R.id.container);
-        tabHost.addTab(tabHost.newTabSpec(TimeSignalFragment.class.getName())
-                .setIndicator(getString(R.string.tab_timesignal)), TimeSignalFragment.class, null);
-        //tabHost.addTab(tabHost.newTabSpec(DayDiffFragment.class.getName())
-        //        .setIndicator(getString(R.string.tab_daydiff)), DayDiffFragment.class, null);
-        tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
-            @Override
-            public void onTabChanged(String tabId) {
-                PSDebug.d("タブ変更 id=" + tabId);
-            }
-        });
-        */
     }
 
     /**

@@ -18,8 +18,8 @@
             android:inputType="number"
             android:defaultValue="5" />
         <EditTextPreference
-            android:title="調整ミリ秒"
-            android:summary="実際の時刻から指定ミリ秒だけ調節して表示する"
+            android:title="手動時刻補正ミリ秒"
+            android:summary="指定したミリ秒を端末時刻にに補正した時刻を表示する"
             android:key="time_difference_millisec"
             android:inputType="numberSigned"
             android:defaultValue="0" />
@@ -35,9 +35,14 @@
             android:key="time_vib_finish_millsec"
             android:inputType="number"
             android:defaultValue="1000" />
+        <CheckBoxPreference
+            android:title="NTP時刻補正を行う"
+            android:summary="アプリ起動時にNTPサーバー時刻を取得し端末時間の時刻を補正した時刻を表示する(再起動後に適用)"
+            android:key="time_use_ntp"
+            android:defaultValue="true" />
         <EditTextPreference
             android:title="NTPサーバー"
-            android:summary="NTP時刻を取得するサーバーのURL"
+            android:summary="NTP時刻を取得するサーバーのURL(再起動後に適用)"
             android:key="time_ntp_server"
             android:inputType="textUri"
             android:defaultValue="ntp.nict.jp" />
