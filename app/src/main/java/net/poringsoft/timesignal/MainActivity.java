@@ -1,7 +1,10 @@
 package net.poringsoft.timesignal;
 
 import android.content.Intent;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTabHost;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -34,19 +37,24 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         PSDebug.d("call");
 
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction().add(R.id.container, new TimeSignalFragment()).commit();
+        }
+        /*
         //タブの設定
         FragmentTabHost tabHost = (FragmentTabHost)findViewById(android.R.id.tabhost);
         tabHost.setup(this, getSupportFragmentManager(), R.id.container);
         tabHost.addTab(tabHost.newTabSpec(TimeSignalFragment.class.getName())
                 .setIndicator(getString(R.string.tab_timesignal)), TimeSignalFragment.class, null);
-        tabHost.addTab(tabHost.newTabSpec(DayDiffFragment.class.getName())
-                .setIndicator(getString(R.string.tab_daydiff)), DayDiffFragment.class, null);
+        //tabHost.addTab(tabHost.newTabSpec(DayDiffFragment.class.getName())
+        //        .setIndicator(getString(R.string.tab_daydiff)), DayDiffFragment.class, null);
         tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
             public void onTabChanged(String tabId) {
                 PSDebug.d("タブ変更 id=" + tabId);
             }
         });
+        */
     }
 
     /**

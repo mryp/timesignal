@@ -147,7 +147,7 @@ public class TimeSignalFragment extends Fragment {
 
         //カウントダウンで音を鳴らす秒数文字列リストを作成する
         int tickCount = EnvOption.getTimeCountdownCount(getActivity());
-        m_countdownClockTextList = new ArrayList<>();
+        m_countdownClockTextList = new ArrayList<String>();
         for (int i=0; i<tickCount; i++)
         {
             int time = 59 - i;

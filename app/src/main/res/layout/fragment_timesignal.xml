@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
              android:layout_width="match_parent"
-             android:layout_height="match_parent">
+             android:layout_height="match_parent"
+             android:background="@color/main_background">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -13,7 +14,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:textSize="50sp"
-            android:textColor="#000000"
+            android:textColor="@color/main_text"
             android:text="00:00:00"
             android:layout_gravity="center_horizontal"/>
     </LinearLayout>
@@ -31,7 +32,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="0dp"
             android:textSize="20sp"
-            android:textColor="#000000"
+            android:textColor="@color/main_text_dark"
             android:text="設定調整ミリ秒："
             android:layout_gravity="left"/>
         <TextView
@@ -43,7 +44,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="20dp"
             android:textSize="20sp"
-            android:textColor="#000000"
+            android:textColor="@color/main_text_dark"
             android:text="NTP調整ミリ秒："
             android:layout_gravity="left"/>
     </LinearLayout>
