@@ -190,7 +190,7 @@ public class TimeSignalFragment extends Fragment {
         now.add(Calendar.MILLISECOND, m_nowDiffMillisec);   //指定ミリ秒数の手動調整
         now.add(Calendar.MILLISECOND, 0 - m_ntpSabun);      //NT時刻との差分を調整
 
-        final String timeText = DateFormat.format("HH:mm:ss", now).toString();
+        final String timeText = DateFormat.format("kk:mm:ss", now).toString();
         if (!timeText.equals(m_preClockText))   //秒単位の変化があった時
         {
             m_preClockText = timeText;
